@@ -1,0 +1,122 @@
+.form-control-feedback{
+	top:10px;
+}
+.help-block.error{
+	position: absolute;
+	font-size: 10px;
+	top: 70px;
+}
+.pace {
+	-webkit-pointer-events: none;
+	pointer-events: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+.pace-inactive {
+	display: none;
+}
+.pace > .pace-progress {
+	background: #29d;
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	right: 100%;
+	width: 100%;
+	height: 2px;
+}
+tr{
+	background-color: #fff;
+}
+td.toolbar > .pull-right{
+	margin-right: 5px;
+}
+.bootstrap-select .btn-default{
+	background-color: #fff;
+	border-radius: 0px;
+}
+.bootstrap-dialog .modal-header {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}
+ /* Extra Small Devices, Phones */
+@media(max-width:767px){
+	td.toolbar{
+		text-align: center;
+		text-align: -webkit-center;
+		text-align: -moz-center;
+	}
+	td.toolbar > .pull-right{
+		margin-right: 0px;
+		margin-bottom: 5px;
+		float: none !important;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
+/*----ESTILOS DEL EDITOR----*/
+div.mce-fullscreen{
+	padding-top: 50px !important;
+	padding-left: 230px !important;
+	-webkit-transition: -webkit-transform .3s ease-in-out,width .3s ease-in-out;
+	-moz-transition: -moz-transform .3s ease-in-out,width .3s ease-in-out;
+	-o-transition: -o-transform .3s ease-in-out,width .3s ease-in-out;
+	transition: transform .3s ease-in-out,width .3s ease-in-out;
+}
+body.mce-fullscreen.sidebar-collapse div.mce-fullscreen{
+	padding-left: 50px !important;
+}
+.mce-panel{
+	border-color: #ccc !important;
+	background-color: #ffffff !important;
+	background-image: none !important;
+}
+.mce-menubar{
+	border-color: #ccc !important;
+}
+.mce-menubar .mce-btn{
+	box-shadow: none !important;
+	background-color: #ffffff !important;
+}
+.mce-btn{
+	background-image: none !important;
+	background-color: #fafafa !important;
+	text-shadow: none !important;
+	-webkit-box-shadow: inset 0px -2px 0px 0px rgba(0, 0, 0, 0.09) !important;
+	-moz-box-shadow: inset 0px -2px 0px 0px rgba(0, 0, 0, 0.09) !important;
+	box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.09) !important;
+}
+.mce-btn:hover{
+	background-color: #f4f4f4 !important;
+	background-image: none !important;
+}
+.mce-primary{
+	background-color: #3c8dbc !important;
+	border-color: #367fa9 !important;
+}
+.mce-primary:hover{
+	background-color: #367fa9 !important;
+	border-color: #367fa9 !important;
+}
+.mce-primary button, .mce-primary button i{
+	text-shadow: none !important;
+}
+.mce-textbox, .mce-combobox.mce-has-open input{
+	border-radius: 0px !important;
+}
+.mce-window-head, .mce-foot{
+	border: 0px transparent !important;
+}
