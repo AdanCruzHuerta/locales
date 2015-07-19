@@ -197,3 +197,6 @@ body{
 	font-size: 10px;
 	top: 28px;
 }
+#map-canvas{
+	height: 400px;
+}

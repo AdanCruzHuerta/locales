@@ -1,16 +1,43 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
+
+use App\Models\Municipio;
+/*	
+|	RUTAS PUBLICAS
+*/
+get('/', function () {
+    return view('sitio.index');
+});
+
+get('/register', 'LocalController@create');
+
+post('/register', 'LocalController@store');
+
 /*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
+| 	RUTAS PRIVADAS EMPRESA
 */
 
-Route::get('/', function () {
-    return view('welcome');
+/*
+|	RUTAS PRIVADAS CLIENTE
+*/
+
+/*
+|	RUTAS COMPLEMENTARIAS
+*/
+
+/*get('/users', function() {
+	
+	return DB::table('usuarios')->get();
+
+});*/
+
+post('/municipios', function(Request $request) {
+
+	$municipios = Municipio::where('estados_id', $request->estado_id)->get();
+
+	return response()->json($municipios);
+
 });
