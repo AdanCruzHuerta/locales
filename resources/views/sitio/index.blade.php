@@ -3,7 +3,10 @@
 @section('content')
 	<section class="portada">
 		<div class="container">
-			<div class="row">
+			<div class="row">	
+				{{-- Notifica si hay un error de autenticación --}}		
+				@include('sitio.resources.messages.failLogin')
+				
 				<div class="col-xs-12 col-sm-6 col-md-7">
 					<div class="info-content">
 						<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
@@ -15,21 +18,21 @@
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-5">
 					<div class="login-content">
-						<form action="" class="well">
+						{!! Form::open(['url' => '/login', 'class' => 'well']) !!}
 							<h4>Acceso Empresas</h4>
 							<div class="form-group">
-								<input type="text" class="form-control">
+								<input type="text" class="form-control" placeholder="Correo electrónico" name="correo" value="{{ old('correo') }}">
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control">
+								<input type="password" class="form-control" placeholder="Password" name="password">
 							</div>
 							<div class="form-group">
 								<a href="">¿Olvidaste tu contraseña?</a>
 							</div>
 							<div class="form-group">
-								<button type="button" class="btn btn-block btn-primary">Acceder</button>
+								<button type="submit" class="btn btn-block btn-primary">Acceder</button>
 							</div>
-						</form>
+						{!! Form::close() !!}
 					</div>
 				</div>
 			</div>

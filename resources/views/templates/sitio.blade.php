@@ -28,7 +28,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/"><img class="img-responsive" src="img/logo-negro.png" alt="logo"></a>
+					<a class="navbar-brand" href="/"><img class="img-responsive" src="" alt="logo"></a>
 				</div>
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav navbar-right">

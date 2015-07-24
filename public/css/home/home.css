@@ -200,3 +200,6 @@ body{
 #map-canvas{
 	height: 400px;
 }
+.alert{
+	color: #fff;
+}

@@ -3,12 +3,22 @@
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+use App\Models\Repositories\RepositorieMunicipio;
 
-use App\Models\Municipio;
 /*	
 |	RUTAS PUBLICAS
 */
 get('/', function () {
+
+	if (Auth::check()) {
+
+		if(Auth::user()->tipo_usuarios_id == 1) {
+
+			return redirect('/empresa-administrador');
+		
+		}
+	}
+	
     return view('sitio.index');
 });
 
@@ -16,9 +26,40 @@ get('/register', 'LocalController@create');
 
 post('/register', 'LocalController@store');
 
+post('/login','LoginController@store');
+
+get('/logout', 'LoginController@destroy');
+
 /*
 | 	RUTAS PRIVADAS EMPRESA
 */
+Route::group(['middleware' => ['auth','empresario']], function () {
+
+	get('/admin', function() {
+
+		return view('admin.estadisticas');
+
+	});
+
+	get('/admin/local/caracteristicas', 'LocalController@caracteristicas');
+
+	get('/admin/local/ubicacion', 'LocalController@ubicacion');
+
+	get('/admin/local/galeria', 'LocalController@galeria');
+
+	Route::resource('/admin/clientes','ClienteController');
+
+	Route::resource('/admin/proveedores','ProveedorController');
+
+	Route::resource('/admin/paquetes', 'PaqueteController');	
+
+	get('/admin/calendario', function() {
+
+		return view('admin.calendario');
+
+	});
+
+});
 
 /*
 |	RUTAS PRIVADAS CLIENTE
@@ -28,16 +69,11 @@ post('/register', 'LocalController@store');
 |	RUTAS COMPLEMENTARIAS
 */
 
-/*get('/users', function() {
-	
-	return DB::table('usuarios')->get();
-
-});*/
 
 post('/municipios', function(Request $request) {
 
-	$municipios = Municipio::where('estados_id', $request->estado_id)->get();
+	$municipios = RepositorieMunicipio::getMunicipios($request);
 
 	return response()->json($municipios);
-
+	
 });
