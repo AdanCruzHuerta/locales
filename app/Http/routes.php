@@ -47,6 +47,8 @@ Route::group(['middleware' => ['auth','empresario']], function () {
 
 	get('/admin/local/galeria', 'LocalController@galeria');
 
+	get('/admin/local/administracion', 'LocalController@administracion');
+
 	Route::resource('/admin/clientes','ClienteController');
 
 	Route::resource('/admin/proveedores','ProveedorController');

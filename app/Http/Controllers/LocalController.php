@@ -109,6 +109,11 @@ class LocalController extends Controller
         return view('admin.galeria');
     }
 
+    public function administracion()
+    {
+        return view('admin.datosAdministracion');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

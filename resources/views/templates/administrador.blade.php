@@ -119,6 +119,7 @@
 								<i class="fa fa-desktop"></i> <span>Datos del local</span> <i class="fa fa-angle-left pull-right"></i>
 							</a>
 							<ul class="treeview-menu">
+								<li><a href="/admin/local/administracion"><i class="fa fa-circle-o"></i> Datos administrativos</a></li>
 								<li><a href="/admin/local/ubicacion"><i class="fa fa-circle-o"></i> Ubicación</a></li>
 								<li><a href="/admin/local/caracteristicas"><i class="fa fa-circle-o"></i> Características</a></li>
 								<li><a href="/admin/local/galeria"><i class="fa fa-circle-o"></i> Galería</a></li>
