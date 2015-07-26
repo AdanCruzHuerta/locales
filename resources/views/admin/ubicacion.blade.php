@@ -25,6 +25,9 @@
 								<div class="form-group">
 									<select name="estado_id" id="estado_id" class="form-control">
 										<option value="">Estado *</option>
+										@foreach($estados as $estado)
+										<option @if($estado->id == $data->estado) {{ "selected = 'selected'" }} @endif value="{{ $estado->id }}">{{ $estado->nombre }}</option>
+										@endforeach
 									</select>
 								</div>
 								<div class="form-group">
@@ -33,33 +36,33 @@
 									</select>
 								</div>
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Colonia *" name="colonia" id="colonia">
+									<input type="text" class="form-control" placeholder="Colonia *" name="colonia" id="colonia" value="{{ $data->colonia }}">
 								</div>
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Codigo Postal *" name="codigo_postal" id="codigo_postal">
+									<input type="text" class="form-control" placeholder="Codigo Postal *" name="codigo_postal" id="codigo_postal" value="{{ $data->codigo_postal }}">
 								</div>
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Domicilio *" name="domicilio" id="domicilio">
+									<input type="text" class="form-control" placeholder="Domicilio *" name="domicilio" id="domicilio" value="{{ $data->domicilio }}">
 								</div>
 								<div class="row">
 									<div class="col-xs-12 col-sm-6 col-md-6">
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="No interior *" name="numero_int" id="numero_int">
+											<input type="text" class="form-control" placeholder="No interior *" name="numero_int" id="numero_int" value="{{ $data->numero_int }}">
 										</div>
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6">
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="No exterior" name="numero_ext" id="numero_ext">
+											<input type="text" class="form-control" placeholder="No exterior" name="numero_ext" id="numero_ext" value="{{ $data->numero_ext }}">
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-12 col-sm-6 col-md-8">
 								<div class="form-group">
-									<textarea name="referencia" id="referencia" cols="30" rows="5" class="form-control" placeholder="Referencia del local"></textarea>
+									<textarea name="referencia" id="referencia" cols="30" rows="5" class="form-control" placeholder="Referencia del local">{{ $data->referencia }}</textarea>
 								</div>
 								<div class="form-group">
-									<textarea name="descripcion" id="descripcion" cols="30" rows="5" class="form-control" placeholder="Descripción"></textarea>
+									<textarea name="descripcion" id="descripcion" cols="30" rows="5" class="form-control" placeholder="Descripción">{{ $data->descripcion }}</textarea>
 								</div>
 							</div>
 						</div>
@@ -87,4 +90,11 @@
 		</div>
 	</section>
 
+	<script type="text/javascript">
+
+	$(document).ready(function() {
+		alert('welcome');
+	});	
+
+	</script>
 @stop

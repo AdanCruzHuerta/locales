@@ -94,6 +94,7 @@
 					</div>
 				</nav>
 			</header>
+			@inject('empresa','App\Http\Controllers\LocalController')
 			<aside class="main-sidebar">
 				<section class="sidebar">
 					<div class="user-panel">
@@ -104,7 +105,7 @@
 							<p>
 								Bienvenido
 							</p>
-							<small>Nombre empresa</small>
+							<small>{{$empresa->nameEmpresa()->razon_social}}</small>
 						</div>
 					</div>
 					<ul class="sidebar-menu">

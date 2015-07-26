@@ -8,7 +8,8 @@ namespace App\Models\Repositories;
 
 class RepositorieLocal
 {
-	static function saveLocal($request) {
+	static function saveLocal($request) 
+	{
 
 		try{
 			
@@ -101,5 +102,72 @@ class RepositorieLocal
 
 			return false;
 		}
+	}
+
+	static function nameEmpresa()
+	{
+		$local = \DB::table('usuarios')
+
+            ->join('perfil_empresario', 'usuarios.id', '=', 'perfil_empresario.usuarios_id')
+          
+            ->join('locales', 'perfil_empresario.id', '=', 'locales.perfil_empresario_id')
+
+            ->where('usuarios.id', '=', \Auth::user()->id)
+          
+            ->select('locales.razon_social')
+          
+            ->first();
+
+        return $local;
+	}
+
+	static function datosAdministrativos()
+	{
+		$data = \DB::table('usuarios')
+
+			->join('perfil_empresario', 'usuarios.id', '=', 'perfil_empresario.usuarios_id')
+          
+            ->join('locales', 'perfil_empresario.id', '=', 'locales.perfil_empresario_id')
+
+            ->where('usuarios.id', '=', \Auth::user()->id)
+
+            ->select('usuarios.correo','perfil_empresario.nombre_completo','locales.nombre_local',
+            		 
+            		 'locales.razon_social', 'locales.estatus_fiscal', 'locales.rfc',
+
+            		 'locales.sitio_web', 'locales.facebook', 'locales.instagram',
+
+            		 'locales.whatsapp')
+
+            ->first();
+
+        return $data;
+	}
+
+	static function datosUbicacion()
+	{
+		$data = \DB::table('usuarios')
+
+			->join('perfil_empresario', 'usuarios.id', '=', 'perfil_empresario.usuarios_id')
+          
+            ->join('locales', 'perfil_empresario.id', '=', 'locales.perfil_empresario_id')
+
+            ->join('municipios', 'locales.municipios_id', '=', 'municipios.id')
+
+            ->join('estados', 'municipios.estados_id', '=', 'estados.id')
+
+            ->where('usuarios.id', '=', \Auth::user()->id) 
+
+            ->select('estados.id as estado','municipios.id as municipio','locales.colonia',
+
+            		 'locales.codigo_postal','locales.domicilio','locales.numero_ext',
+
+            		 'locales.numero_int','locales.referencia','locales.descripcion',
+
+            		 'locales.latitud', 'locales.longitud')
+
+            ->first();
+
+        return $data;
 	}
 }

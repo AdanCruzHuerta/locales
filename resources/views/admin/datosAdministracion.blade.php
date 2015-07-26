@@ -1,7 +1,6 @@
 @extends('templates.administrador')
 
 @section('content')
-
 	<section class="content-header">
 		<h1>
 		Datos del local
@@ -27,7 +26,7 @@
 								<div class="row">
 									<div class="col-xs-12 col-sm-6 col-md-4">
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Correo *" name="correo" id="correo">
+											<input type="text" class="form-control" placeholder="Correo *" name="correo" id="correo" value="{{$data->correo}}">
 										</div>
 										<div class="form-group">
 											<input type="password" class="form-control" placeholder="Contraseña *" name="password" id="password">
@@ -57,19 +56,19 @@
 						<div class="row">
 							<div class="col-xs-12 col-sm-6 col-md-4">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Nombre completo *" name="nombre_completo" id="nombre_completo">
+									<input type="text" class="form-control" placeholder="Nombre completo *" name="nombre_completo" id="nombre_completo" value="{{$data->nombre_completo}}">
 								</div>
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Nombre local *" name="nombre_local" id="nombre_local">
+									<input type="text" class="form-control" placeholder="Nombre local *" name="nombre_local" id="nombre_local" value="{{$data->nombre_local}}">
 								</div>
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Razón social *" name="razon_social" id="razon_social">
+									<input type="text" class="form-control" placeholder="Razón social *" name="razon_social" id="razon_social" value="{{$data->razon_social}}">
 								</div>
 								<div class="row">
 									<div class="col-xs-12 col-sm-6 col-md-6">
 										<div class="form-group">
 											<label for="persona_fisica">
-												<input type="radio" name="estatus_fiscal" id="persona_fisica" checked>
+												<input type="radio" name="estatus_fiscal" id="persona_fisica" @if($data->estatus_fiscal == 1){{ 'checked' }}@endif>
 												Persona Fisica *
 											</label>
 										</div>
@@ -77,28 +76,28 @@
 									<div class="col-xs-12 col-sm-6 col-md-6">
 										<div class="form-group">
 											<label for="persona_moral">
-												<input type="radio" name="estatus_fiscal" id="persona_moral">
+												<input type="radio" name="estatus_fiscal" id="persona_moral" @if($data->estatus_fiscal == 2){{ 'checked' }}@endif>
 												Persona Moral *
 											</label>
 										</div>
 									</div>
 								</div>
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="RFC *" name="rfc" id="rfc">
+									<input type="text" class="form-control" placeholder="RFC *" name="rfc" id="rfc" value="{{$data->rfc}}">
 								</div>
 							</div>
 							<div class="col-xs-12 col-sm-6 col-md-4">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Sitio web" name="sitio_web" id="sitio_web">
+									<input type="text" class="form-control" placeholder="Sitio web" name="sitio_web" id="sitio_web" value="{{$data->sitio_web}}">
 								</div>
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Facebook" name="facebook" id="facebook">
+									<input type="text" class="form-control" placeholder="Facebook" name="facebook" id="facebook" value="{{$data->facebook}}">
 								</div>
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Instagram" name="instagram" id="instagram">
+									<input type="text" class="form-control" placeholder="Instagram" name="instagram" id="instagram" value="{{$data->instagram}}">
 								</div>
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Whatsapp" name="whatsapp" id="whatsapp">
+									<input type="text" class="form-control" placeholder="Whatsapp" name="whatsapp" id="whatsapp" value="{{$data->whatsapp}}">
 								</div>
 							</div>
 						</div>

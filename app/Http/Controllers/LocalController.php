@@ -10,26 +10,21 @@ use Illuminate\Http\Request;
     use Hash;
 
     use App\Models\Estado;
+    use App\Models\TipoLocal;
+    use App\Models\TipoEvento;
+    use App\Models\CapacidadLocal;
+    use App\Models\CaracteristicaLocal;
+    use App\Models\ServicioExtra;
     use App\Models\Repositories\RepositorieLocal;
     use App\Http\Controllers\Libraries\EmailController;
 
 class LocalController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
     public function create()
     {
         $estados = Estado::all();
@@ -37,12 +32,6 @@ class LocalController extends Controller
         return view('sitio.registro', compact('estados'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  Request  $request
-     * @return Response
-     */
     public function store(Request $request)
     {
         $store = RepositorieLocal::saveLocal($request);
@@ -60,35 +49,16 @@ class LocalController extends Controller
         
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  Request  $request
-     * @param  int  $id
-     * @return Response
-     */
     public function update(Request $request, $id)
     {
         //
@@ -96,12 +66,29 @@ class LocalController extends Controller
 
     public function caracteristicas()
     {
-        return view('admin.caracteristicas');
+        // en general
+        $tipos_local = TipoLocal::all();
+
+        $capacidades_local = CapacidadLocal::all();
+
+        $tipos_evento = TipoEvento::all();
+
+        $caracteristicas_local = CaracteristicaLocal::all();
+
+        $servicios_extra = ServicioExtra::all();
+
+        //particular de cada cliente
+
+        return view('admin.caracteristicas', compact('tipos_local','capacidades_local','tipos_evento','caracteristicas_local','servicios_extra'));
     }
 
     public function ubicacion()
-    {
-        return view('admin.ubicacion');
+    {   
+        $estados = Estado::all();
+
+        $data = RepositorieLocal::datosUbicacion();
+
+        return view('admin.ubicacion', compact('estados','data'));
     }
 
     public function galeria() 
@@ -111,15 +98,16 @@ class LocalController extends Controller
 
     public function administracion()
     {
-        return view('admin.datosAdministracion');
+        $data = RepositorieLocal::datosAdministrativos();
+
+        return view('admin.datosAdministracion', compact('data'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
+    public function nameEmpresa()
+    {
+        return RepositorieLocal::nameEmpresa();
+    }
+
     public function destroy($id)
     {
         //

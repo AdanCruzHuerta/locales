@@ -68,7 +68,7 @@
 									<div class="col-xs-12 col-sm-6 col-md-6">
 										<div class="form-group">
 												<label for="persona_fisica">
-													<input type="radio" name="estatus_fiscal" id="persona_fisica" checked>
+													<input type="radio" name="estatus_fiscal" id="persona_fisica" value="1" checked>
 													Persona Física *
 												</label>
 										</div>
@@ -76,7 +76,7 @@
 									<div class="col-xs-12 col-sm-6 col-md-6">
 										<div class="form-group">
 												<label for="persona_moral">
-													<input type="radio" name="estatus_fiscal" id="persona_moral">
+													<input type="radio" name="estatus_fiscal" id="persona_moral" value="2">
 													Persona Moral *
 												</label>
 										</div>
