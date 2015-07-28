@@ -7,11 +7,7 @@ use App\Http\Controllers\Controller;
 
 class EmailController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
+    
     static function send($request)
     {
         // guardamos datos enviados desde el form en un array
@@ -31,5 +27,30 @@ class EmailController extends Controller
         });
 
         return true;
+    }
+
+    static function sendPassword($correo, $password)
+    {
+        $data = ['correo'=>$correo,'password'=>$password];
+
+        \Mail::send('emails.messagePassword', $data, function($message) use ($correo, $password)
+        {
+            //remitente
+            $message->from('adancruzhuerta@gmail.com', 'ADÁN CRUZ HUERTA');
+ 
+            //asunto
+            $message->subject('LOCALES SHARK-AMISI - RESTABLECER CONTRASEÑA');
+ 
+            //receptor
+            $message->to($correo);
+
+        });
+
+        return true;
+    }
+
+    static function sendNotificationChangeAccessos()
+    {
+        
     }
 }

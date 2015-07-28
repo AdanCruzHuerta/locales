@@ -22,7 +22,7 @@
 							</h4>
 						</div>
 						<div class="panel-collapse collapse" id="acceso">
-							<form class="box-body" id="form-acceso">
+							{!! Form::open(['url'=>'/admin/local/administracion-accessos','class'=>'box-body','id'=>'form-acceso']) !!}
 								<div class="row">
 									<div class="col-xs-12 col-sm-6 col-md-4">
 										<div class="form-group">
@@ -38,13 +38,14 @@
 										</div>
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-4">
+									<input type="hidden" name="id_user" value="{{ Auth::user()->id }}">
 									</div>
 								</div>
 								<div class="form-group">
 									<button class="btn btn-primary pull-right">Guardar Cambios</button>
 								</div>
 								<div class="clearfix"></div>
-							</form>
+							{!! Form::close() !!}
 						</div>
 					</div>
 				</div>

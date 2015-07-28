@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
     use App\Http\Controllers\Controller;
     use Hash;
 
+    use App\Models\User;
     use App\Models\Estado;
     use App\Models\TipoLocal;
     use App\Models\TipoEvento;
@@ -67,19 +68,19 @@ class LocalController extends Controller
     public function caracteristicas()
     {
         // en general
-        $tipos_local = TipoLocal::all();
+        $data['tipos_local'] = TipoLocal::all();
 
-        $capacidades_local = CapacidadLocal::all();
+        $data['capacidades_local'] = CapacidadLocal::all();
 
-        $tipos_evento = TipoEvento::all();
+        $data['tipos_evento'] = TipoEvento::all();
 
-        $caracteristicas_local = CaracteristicaLocal::all();
+        $data['caracteristicas_local'] = CaracteristicaLocal::all();
 
-        $servicios_extra = ServicioExtra::all();
+        $data['servicios_extra'] = ServicioExtra::all();
 
         //particular de cada cliente
 
-        return view('admin.caracteristicas', compact('tipos_local','capacidades_local','tipos_evento','caracteristicas_local','servicios_extra'));
+        return view('admin.caracteristicas', compact('data'));
     }
 
     public function ubicacion()
@@ -101,6 +102,19 @@ class LocalController extends Controller
         $data = RepositorieLocal::datosAdministrativos();
 
         return view('admin.datosAdministracion', compact('data'));
+    }
+
+    public function administracionAccessos(Request $request)
+    {
+        $usuario = User::find($request->id_user);
+
+        $usuario->correo = $request->correo;
+
+        $usuario->password = \Hash::make($request->password);
+
+        $usuario->save();
+
+        EmailController::sendNotificationChangeAccessos();
     }
 
     public function nameEmpresa()

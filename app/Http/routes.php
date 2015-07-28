@@ -22,6 +22,7 @@ get('/', function () {
     return view('sitio.index');
 });
 
+
 get('/register', 'LocalController@create');
 
 post('/register', 'LocalController@store');
@@ -48,6 +49,8 @@ Route::group(['middleware' => ['auth','empresario']], function () {
 	get('/admin/local/galeria', 'LocalController@galeria');
 
 	get('/admin/local/administracion', 'LocalController@administracion');
+
+	post('/admin/local/administracion-accessos','LocalController@administracionAccessos');
 
 	Route::resource('/admin/clientes','ClienteController');
 
@@ -78,4 +81,18 @@ post('/municipios', function(Request $request) {
 
 	return response()->json($municipios);
 	
+});
+
+post('/get-password', function(Request $request) {
+
+	$response = App\Http\Controllers\Libraries\ResetPassword::reset($request);
+
+	if ($response) {
+
+		return redirect('/')->with('successCorreo','Hemos mandado una contraseña temporal a tu correo');
+
+	}
+
+	return redirect('/')->with('failCorreo','El correo introducido no existe');
+
 });

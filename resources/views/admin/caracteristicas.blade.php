@@ -1,7 +1,6 @@
 @extends('templates.administrador')
 
 @section('content')
-
 	<section class="content-header">
 		<h1>
 			Datos del local
@@ -20,7 +19,7 @@
 						<h3 class="box-title">Tipo de local</h3>
 					</div>
 					<div class="box-body">
-						@foreach($tipos_local as $tipo_local)
+						@foreach($data['tipos_local'] as $tipo_local)
 							<div class="form-group">
 								<label>
 									<input type="radio" name="tipo" id="campestre" value="{{ $tipo_local->id }}">
@@ -38,7 +37,7 @@
 					</div>
 					<div class="box-body">
 						<div class="row">
-							@foreach($capacidades_local as $capacidad_local)
+							@foreach($data['capacidades_local'] as $capacidad_local)
 								<div class="col-xs-12 col-sm-4 col-md-4">
 									<div class="form-group">
 										<label>
@@ -67,7 +66,7 @@
 					</div>
 					<div class="box-body">
 						<div class="row">
-							@foreach($tipos_evento as $tipo_evento)
+							@foreach($data['tipos_evento'] as $tipo_evento)
 								<div class="col-xs-12 col-sm-4 col-md-3">
 									<div class="form-group">
 										<label for="infantil">
@@ -88,7 +87,7 @@
 					</div>
 					<div class="box-body">
 						<div class="row">
-							@foreach($caracteristicas_local as $caracteristica_local)
+							@foreach($data['caracteristicas_local'] as $caracteristica_local)
 								<div class="col-xs-12 col-sm-3 col-md-3">
 									<div class="form-group">
 										<label>
@@ -109,7 +108,7 @@
 					</div>
 					<div class="box-body">
 						<div class="row">
-						@foreach($servicios_extra as $servicio_extra)
+						@foreach($data['servicios_extra'] as $servicio_extra)
 							<div class="col-xs-12 col-sm-3 col-md-3">
 								<div class="form-group">
 									<label>
