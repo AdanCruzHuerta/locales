@@ -7,12 +7,15 @@
 		<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 		<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="/css/admin/LTE.min.css">
-		<link rel="stylesheet" type="text/css" href="/css/admin/skin-black.css">
 		<link rel="stylesheet" type="text/css" href="/css/admin/iCheck-blue.css">
 		<link rel="stylesheet" type="text/css" href="/css/admin/select.min.css">
 		<link rel="stylesheet" type="text/css" href="/css/admin/dialog.min.css">
+		<link rel="stylesheet" type="text/css" href="/css/admin/fileinput.min.css">
+		<link rel="stylesheet" type="text/css" href="/css/admin/fullcalendar.min.css">
+		<link rel="stylesheet" type="text/css" href="/css/admin/fullcalendar.print.css" media='print'>
 		<link rel="stylesheet" type="text/css" href="/css/animate.min.css">
+		<link rel="stylesheet" type="text/css" href="/css/admin/LTE.min.css">
+		<link rel="stylesheet" type="text/css" href="/css/admin/skin-black.css">
 		<link rel="stylesheet" type="text/css" href="/css/admin/admin.css">
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,18 +23,6 @@
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-		<script type="text/javascript" src="/js/admin/jquery.min.js"></script>
-		<script type="text/javascript" src="/js/admin/jquery-ui.min.js"></script>
-		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="/js/admin/LTE.min.js"></script>
-		<script type="text/javascript" src="/js/pace.js"></script>
-		<script type="text/javascript" src="/js/admin/icheck.min.js"></script>
-		<script type="text/javascript" src="/js/notify.min.js"></script>
-		<script type="text/javascript" src="/js/admin/slimscroll.min.js"></script>
-		<script type="text/javascript" src="/js/validate.js"></script>
-		<script type="text/javascript" src="/js/admin/select.min.js"></script>
-		<script type="text/javascript" src="/js/admin/dialog.min.js"></script>
-		<script type="text/javascript" src="/js/admin/admin.js"></script>
 	</head>
 	<body class="skin-black sidebar-mini">
 		<div class="wrapper">
@@ -179,4 +170,16 @@
 			<div class='control-sidebar-bg'></div>
 		</div>
 	</body>
+	<script type="text/javascript" src="/js/admin/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/admin/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/admin/LTE.min.js"></script>
+	<script type="text/javascript" src="/js/pace.js"></script>
+	<script type="text/javascript" src="/js/admin/icheck.min.js"></script>
+	<script type="text/javascript" src="/js/notify.min.js"></script>
+	<script type="text/javascript" src="/js/admin/slimscroll.min.js"></script>
+	<script type="text/javascript" src="/js/validate.js"></script>
+	<script type="text/javascript" src="/js/admin/select.min.js"></script>
+	<script type="text/javascript" src="/js/admin/dialog.min.js"></script>
+	<script type="text/javascript" src="/js/admin/admin.js"></script>
 </html>

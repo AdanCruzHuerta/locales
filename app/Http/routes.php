@@ -5,20 +5,17 @@ use Illuminate\Http\Response;
 
 use App\Models\Repositories\RepositorieMunicipio;
 
-/*	
+/*
 |	RUTAS PUBLICAS
 */
 get('/', function () {
-
 	if (Auth::check()) {
-
 		if(Auth::user()->tipo_usuarios_id == 1) {
-
 			return redirect('/empresa-administrador');
-		
+
 		}
 	}
-	
+
     return view('sitio.index');
 });
 
@@ -56,7 +53,7 @@ Route::group(['middleware' => ['auth','empresario']], function () {
 
 	Route::resource('/admin/proveedores','ProveedorController');
 
-	Route::resource('/admin/paquetes', 'PaqueteController');	
+	Route::resource('/admin/paquetes', 'PaqueteController');
 
 	get('/admin/calendario', function() {
 
