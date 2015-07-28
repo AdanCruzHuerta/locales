@@ -21,10 +21,12 @@
 							<div class="btn-group" data-toggle="tooltip" title="Nuevo Cliente">
 								<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal-nuevoCliente"><i class="fa fa-plus"></i></button>
 							</div>
+							<button class="btn btn-default btn-sm" data-toggle="tooltip" title="Eliminar cliente" id="eliminar-cliente" disabled><i class="fa fa-trash"></i></button>
+							<button class="btn btn-default btn-sm" data-toggle="tooltip" title="Editar cliente" id="editar-cliente" disabled><i class="fa fa-pencil"></i></button>
 						</div>
 					</div>
 					<div class="box-body no-padding">
-						<table class="table table-hover">
+						<table class="table table-hover" id="table-clientes">
 							<thead>
 								<tr>
 									<th>Nombre</th>
@@ -34,6 +36,29 @@
 									<th>Acciones</th>
 								</tr>
 							</thead>
+							<tbody>
+								<tr id="1">
+									<td>Nombre</td>
+									<td>Domicilio</td>
+									<td>Teléfono</td>
+									<td>Correo Electrónico</td>
+									<td>Acciones</td>
+								</tr>
+								<tr id="2">
+									<td>Nombre</td>
+									<td>Domicilio</td>
+									<td>Teléfono</td>
+									<td>Correo Electrónico</td>
+									<td>Acciones</td>
+								</tr>
+								<tr id="3">
+									<td>Nombre</td>
+									<td>Domicilio</td>
+									<td>Teléfono</td>
+									<td>Correo Electrónico</td>
+									<td>Acciones</td>
+								</tr>
+							</tbody>
 						</table>
 					</div>
 				</div>
@@ -51,28 +76,28 @@
 					<div class="row">
 						<div class="col-xs-12 col-sm-6 col-md-6">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Nombre completo">
+								<input type="text" class="form-control" placeholder="Nombre completo" id="nombre" name="nombre">
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Teléfono fijo">
+								<input type="text" class="form-control" placeholder="Teléfono fijo" id="telefono" name="telefono">
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-6 col-md-6">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Domicilio">
+								<input type="text" class="form-control" placeholder="Domicilio" id="domicilio" name="domicilio">
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Celular">
+								<input type="text" class="form-control" placeholder="Celular" id="celular" name="celular">
 							</div>
 						</div>
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Correo Electrónico">
+						<input type="text" class="form-control" placeholder="Correo Electrónico" id="correo" name="correo">
 					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-					<button type="button" class="btn btn-primary">Guardar Datos</button>
+					<button type="submit" class="btn btn-primary">Guardar Datos</button>
 				</div>
 			</form>
 		</div>

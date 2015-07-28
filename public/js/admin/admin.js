@@ -360,4 +360,51 @@ $(document).ready(function(){
 			});
 		});
 	}
+	if(base_url+'admin/clientes' == url){
+		var cliente = $('#form-nuevoCliente').validate({
+			rules:{
+				nombre:{required:true},
+				telefono:{required:true,digits:true,minlength:10,maxlength:10},
+				domicilio:{required:true},
+				celular:{required:false,digits:true,minlength:10,maxlength:10},
+				correo:{required:true, email:true},
+			},
+			submitHandler: function(){
+				$.hacerAjax(url+'login/validaUsuario',$('#form-nuevoCliente'),function(respuesta){
+					if(respuesta.result){
+						$.notificacion(respuesta.mensaje,'success');
+					}else{
+						$.notificacion(respuesta.mensaje,'warning');
+					}
+				});
+			}
+		});
+		$('#modal-nuevoCliente').on('hidden.bs.modal', function (e) {
+			cliente.resetForm();
+			$('#form-nuevoCliente').trigger('reset');
+			$('#form-nuevoCliente .form-group').removeClass('has-success has-error');
+		});
+
+		$('#table-clientes tbody').on('click','tr',function(){
+			if ($(this).hasClass('active') ) {
+				$(this).removeClass('active');
+				$('#eliminar-cliente').prop('disabled',true);
+				$('#editar-cliente').prop('disabled',true);
+			}else {
+				$('tr.active').removeClass('active');
+				$(this).addClass('active');
+				$('#eliminar-cliente').prop('disabled',false);
+				$('#editar-cliente').prop('disabled',false);
+			}
+		});
+
+		$('#eliminar-cliente').click(function(){
+			var tr = $('#table-clientes tbody tr.active');
+			if(tr.attr('id') > 0){
+				alert(tr.attr('id'));
+			}else{
+				alert('selecciona un cliente');
+			}
+		});
+	}
 });
